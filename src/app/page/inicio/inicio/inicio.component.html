@@ -1,0 +1,19 @@
+<!--<div>
+    <h3>{{ oneCat.name }}</h3>
+    <p>Raça: {{ oneCat.breed }}</p>
+    <p *ngIf="oneCat.name">Nome: {{ oneCat.name }}</p>
+    <img id="imagemGato" src="{{ oneCat.image.url }}" alt="{{ oneCat.name }}">
+</div>-->
+
+
+<div *ngFor="let cat of listCats">
+    <h3 *ngIf="cat.name">{{ cat.name }}</h3>
+    <p *ngIf="cat.name"><b>Nome:</b> {{ cat.name }}</p>
+    <p><b>Origem:</b> {{ cat.origin }}</p>
+    <p><b>Descrição:</b> {{ cat.description }}</p>
+    <p><b>Temperamento:</b> {{ cat.temperament }}</p>
+    <!--<img *ngIf="cat.image.url" class="imagensGatos" src="{{ cat.image.url }}" alt="{{ cat.name }}">-->
+    <img *ngIf="cat.image.url" class="imagensGatos" src="{{ cat.image.url }}" alt="{{ cat.name }}"
+        srcset="{{cat.image.url}} 300w, {{cat.image.url}} 600w, {{cat.image.url}} 900w"
+        sizes="(max-width: 600px) 300px, (max-width: 900px) 600px, 900px">
+</div>
